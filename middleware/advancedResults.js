@@ -1,6 +1,5 @@
 const advancedResults = (model, populate) => async (req, res, next) => {
     let query;
-    console.log(req.sort);
 
     // Copy request.query
     const reqQuery = {...req.query}
@@ -10,8 +9,6 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
     // loop over removeField and delete them from reqQuery
     removeFields.forEach(params => delete reqQuery[params])
-
-    console.log(reqQuery);
 
     // Create query string
     let queryStr = JSON.stringify(reqQuery);
